@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Biolucida</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.blue.css" id='jQMnDColor' />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body>
+        
+    <div data-role="page" data-theme='b'>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <h1>FreeMeter</h1>
+            <a href="#"><i class="fa fa-dashboard"></i></a>
+        </div>
+
+        <div data-role="content">   
+			<div id="mapholder" style="width:400px; height:300px;"></div>
+        </div>
+
+
+       <ul data-role="listview" data-inset="true"  data-ajax="true" data-icon="false" data-divider-theme="b"  id="results"></ul>
+
+        <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-theme="b" role="contentinfo" class="ui-footer ui-bar-b ui-footer-fixed slideup">
+            <div data-role="navbar" class="ui-navbar" role="navigation">
+                <ul class="ui-grid-b">
+                    <li class="ui-block-a"><a href="#" class="ui-link ui-btn"><i class="blIcon fa fa-cogs"></i>config</a></li>
+                    <li class="ui-block-b"><a href="#" class="ui-link ui-btn"><i class="blIcon fa fa-plus"></i>Share Meter</a></li>
+                    <li class="ui-block-c"><a href="#" class="ui-link ui-btn"><i class="blIcon fa fa-share"></i>share it!</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script id="results-template" type="text/x-handlebars-template">
+
+        <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-b" >Meters
+            <span class="ui-li-count ui-body-inherit">{{this.length}}</span>
+        </li>
+
+
+        {{#each this}}
+
+            <li>
+                <a href="#" id="{{id}}" data-ajax="true" data-transition="slide" class="ui-btn meter">
+                    <i class="fa fa-dashboard"></i> {{time_left}}
+                </a>
+            </li>
+
+
+        {{/each}}
+
+
+    </script>
+
+    <!-- jQuery / jQueryMobile Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/main.js"></script>
+	<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-51068337-1', 'dayobject.me');
+          ga('send', 'pageview');
+
+        </script>
+
+    </body>
+</html>
